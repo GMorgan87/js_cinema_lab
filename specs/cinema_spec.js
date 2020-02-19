@@ -5,6 +5,8 @@ const Film  = require('../film.js');
 describe('Cinema', function(){
 
   let film;
+  let film2;
+  let film3;
   let cinema;
 
 
@@ -17,12 +19,12 @@ describe('Cinema', function(){
 
   it('should have a collection of films', function (){
     const actual = cinema.films;
-    assert.deepStrictEqual(actual, [film, film2, film3]);
+    assert.deepStrictEqual(actual, [film, film2, film3, film]);
   });
 
   it('should be able to get a list of film titles', function() {
     const actual = cinema.filmTitles();
-    assert.deepStrictEqual(actual, ['1917', 'Venom', 'Uncut Gems']);
+    assert.deepStrictEqual(actual, ['1917', 'Venom', 'Uncut Gems', '1917']);
   });
 
   it('should be able to find a film by title', function (){
@@ -34,4 +36,19 @@ describe('Cinema', function(){
     const actual = cinema.filmByGenre('War');
     assert.deepStrictEqual(actual, [film, film]);
   });
+
+  it('should be able to check weather there are some films from a year', function() {
+    const actual = cinema.filmFromYear('2018');
+    assert.strictEqual(actual, true);
+  });
+
+  it('should be able to check if all films are over a particular length', function() {
+    const actual = cinema.allFilmsOverLength(80);
+    assert.strictEqual(actual, true);
+  });
+
+  it('should be able to calculate total running time of all films', function(){
+    const actual = cinema.totalRunningTime();
+    assert.strictEqual(actual, 460);
+  })
 });

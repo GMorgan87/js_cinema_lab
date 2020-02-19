@@ -15,7 +15,25 @@ Cinema.prototype.filmByTitle = function (title) {
 Cinema.prototype.filmByGenre = function (genre) {
   return this.films.filter((film) => {
     return film.genre === genre;
-  })
+  });
+}
+
+Cinema.prototype.filmFromYear = function (year) {
+  return this.films.some((film) => {
+    return film.year === year
+  });
+};
+
+Cinema.prototype.allFilmsOverLength = function (time) {
+  return this.films.every((film) => {
+    return film.length > time
+  });
+};
+
+Cinema.prototype.totalRunningTime = function () {
+  return this.films.reduce((runningTotal, film) => {
+    return runningTotal + film.length
+  },0);
 }
 
 
