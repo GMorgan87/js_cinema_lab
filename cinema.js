@@ -7,39 +7,27 @@ Cinema.prototype.filmTitles = function () {
 };
 
 Cinema.prototype.filmByTitle = function (title) {
-  return this.films.find((film) => {
-    return film.title === title;
-  })
+  return this.films.find((film) => film.title === title)
 };
 
 Cinema.prototype.filmByGenre = function (genre) {
-  return this.films.filter((film) => {
-    return film.genre === genre;
-  });
+  return this.films.filter((film) => film.genre === genre);
 };
 
 Cinema.prototype.filmFromYear = function (year) {
-  return this.films.some((film) => {
-    return film.year === year
-  });
+  return this.films.some((film) => film.year === year);
 };
 
 Cinema.prototype.allFilmsOverLength = function (time) {
-  return this.films.every((film) => {
-    return film.length > time
-  });
+  return this.films.every((film) => film.length > time);
 };
 
 Cinema.prototype.totalRunningTime = function () {
-  return this.films.reduce((runningTotal, film) => {
-    return runningTotal + film.length
-  },0);
+  return this.films.reduce((runningTotal, film) => runningTotal + film.length ,0);
 }
 
 Cinema.prototype.filmByProperty = function (property, value) {
-  return this.films.filter((film) => {
-    return film[property] === value;
-  });
+  return this.films.filter((film) => film[property] === value);
 };
 
 
