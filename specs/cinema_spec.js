@@ -11,7 +11,7 @@ describe('Cinema', function(){
 
 
   beforeEach(function (){
-    film = new Film('1917', 'War', '2020', 120);
+    film = new Film('1917', 'War', '2019', 120);
     film2 = new Film('Venom', 'Superhero', '2018', 90);
     film3 = new Film('Uncut Gems', 'Thriller', '2020', 130);
     cinema = new Cinema([film, film2, film3, film]);
@@ -50,5 +50,12 @@ describe('Cinema', function(){
   it('should be able to calculate total running time of all films', function(){
     const actual = cinema.totalRunningTime();
     assert.strictEqual(actual, 460);
-  })
+  });
+
+
+  it('should be able to filter films by property', function(){
+    const actual = cinema.filmByProperty('title','Venom');
+    assert.deepStrictEqual(actual, [film2]);
+  });
+
 });

@@ -16,7 +16,7 @@ Cinema.prototype.filmByGenre = function (genre) {
   return this.films.filter((film) => {
     return film.genre === genre;
   });
-}
+};
 
 Cinema.prototype.filmFromYear = function (year) {
   return this.films.some((film) => {
@@ -36,6 +36,11 @@ Cinema.prototype.totalRunningTime = function () {
   },0);
 }
 
+Cinema.prototype.filmByProperty = function (property, value) {
+  return this.films.filter((film) => {
+    return film[property] === value;
+  });
+};
 
 
 module.exports = Cinema;
